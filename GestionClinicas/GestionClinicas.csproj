@@ -82,6 +82,7 @@
     <Folder Include="Docs\" />
     <Folder Include="Factory\" />
     <Folder Include="Forms\" />
+    <Folder Include="Repository\" />
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
   </ItemGroup>
