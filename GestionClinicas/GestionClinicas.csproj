@@ -52,6 +52,7 @@
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="Entities\HorarioDoctores.cs" />
     <Compile Include="Entities\Paciente.cs" />
+    <Compile Include="Entities\Pagos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
