@@ -12,14 +12,23 @@ namespace GestionClinicas.Data
     public class Database
     {
         private static SqlConnection _connection;
+        private static readonly object _lock = new object();
 
         public static SqlConnection GetConnection()
         {
-            if (_connection == null)
+            if (_connection == null || _connection.State == System.Data.ConnectionState.Closed || _connection.State == System.Data.ConnectionState.Broken)
             {
-                string connStr = ConfigurationManager.ConnectionStrings["SqlConn"].ConnectionString;
-                _connection = new SqlConnection(connStr);
+                lock (_lock)
+                {
+                    if (_connection == null || _connection.State == System.Data.ConnectionState.Closed || _connection.State == System.Data.ConnectionState.Broken)
+                    {
+                        string connStr = ConfigurationManager.ConnectionStrings["SqlConn"].ConnectionString;
+                        _connection = new SqlConnection(connStr);
+                        _connection.Open();
+                    }
+                }
             }
+
             return _connection;
         }
     }
