@@ -73,6 +73,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Docs\" />
     <Folder Include="Entities\" />
     <Folder Include="Factory\" />
     <Folder Include="Forms\" />
